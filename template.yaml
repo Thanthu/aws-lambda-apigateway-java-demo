@@ -10,7 +10,7 @@ Resources:
     Type: AWS::Serverless::Function 
     Properties:
       CodeUri: ordersapi
-      Handler: com.thanthu.labmda.CreateOrderLambda::createOrder
+      Handler: com.thanthu.labmda.api.CreateOrderLambda::createOrder
       Runtime: java11
       MemorySize: 512
       Events:
