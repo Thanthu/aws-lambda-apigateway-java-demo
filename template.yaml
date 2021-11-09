@@ -19,3 +19,16 @@ Resources:
             Properties:
                 Path: /orders
                 Method: POST
+  ReadOrdersFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: ordersapi
+      Handler: com.thanthu.labmda.api.ReadOrdersLambda::getOrders
+      Runtime: java11
+      MemorySize: 512
+      Events:
+        OrderEvents:
+            Type: Api
+            Properties:
+                Path: /orders
+                Method: GET
