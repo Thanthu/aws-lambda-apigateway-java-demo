@@ -4,6 +4,12 @@ Description: >
   ordersapi
 
   Sample SAM Template for ordersapi
+  
+Globals:
+  Function:
+    Runtime: java11
+    MemorySize: 512
+    Timeout: 30        
 
 Resources:
   CreateOrderFunction:
@@ -11,8 +17,6 @@ Resources:
     Properties:
       CodeUri: ordersapi
       Handler: com.thanthu.labmda.api.CreateOrderLambda::createOrder
-      Runtime: java11
-      MemorySize: 512
       Events:
         OrderEvents:
             Type: Api
@@ -24,8 +28,6 @@ Resources:
     Properties:
       CodeUri: ordersapi
       Handler: com.thanthu.labmda.api.ReadOrdersLambda::getOrders
-      Runtime: java11
-      MemorySize: 512
       Events:
         OrderEvents:
             Type: Api
