@@ -25,6 +25,9 @@ Resources:
     Properties:
       CodeUri: ordersapi
       Handler: com.thanthu.labmda.api.CreateOrderLambda::createOrder
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref OrdersTable 
       Events:
         OrderEvents:
             Type: Api
@@ -36,6 +39,9 @@ Resources:
     Properties:
       CodeUri: ordersapi
       Handler: com.thanthu.labmda.api.ReadOrdersLambda::getOrders
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref OrdersTable 
       Events:
         OrderEvents:
             Type: Api
